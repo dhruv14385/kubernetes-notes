@@ -22,6 +22,39 @@ deb http://apt.kubernetes.io/ kubernetes-xenial main
 Get updates  
 apt-get update  
 
+Install kubelet, kubeadm, kubectl etc.  
+apt-get install -y kubelet kubeadm kubectl kubernetes-cni  
+
+Bootstraping the master node  (Run in master EC2)
+kubeadm init  
+
+You will see command to connect master to the node. Copy and paste it aside to use in node instance.  
+kubeadm join .... 
+
+Then paste following  
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config  
+
+Paste following for flannel installation  
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml  
+
+Go to node instance and paste the kubeadm join... command  
+
+Kubernetes installation complete with the step above.  
+
+Run below command in master to check status of nodes
+kubectl get nodes  
+
+Each node and each master has its own IP. Containers within a node don't have individual IPs.
+
+
+
+
+
+
+
 
 
 
