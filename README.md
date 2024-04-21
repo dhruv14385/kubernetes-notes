@@ -1,4 +1,31 @@
 # kubernetes-notes  
+Before installing kubernetes (k8s), get updates on ubuntu  
+sudo su
+apt-get update
+apt-get install apt-transport-https  
+
+Install and start Docker  
+apt install docker.io -y
+docker --version
+systemctl start docker
+systemctl enable docker  
+
+Add GPG keys. You should see 'OK' after running this command.
+sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -  
+
+Create a file as below.  
+nano /etc/apt/sources.list.d/kubernetes.list  
+
+Paste following line in the file in the nano editor. Ctrl+X then Y then press enter to save and exit  
+deb http://apt.kubernetes.io/ kubernetes-xenial main  
+
+Get updates  
+apt-get update  
+
+
+
+
+
 EXAMPLE OF LABELS
 
 
