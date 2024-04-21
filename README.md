@@ -47,8 +47,23 @@ Kubernetes installation complete with the step above.
 Run below command in master to check status of nodes
 kubectl get nodes  
 
-Each node and each master has its own IP. Containers within a node don't have individual IPs.
+Each node and each master has its own IP. Containers within a node don't have individual IPs.   
 
+Lecture 48 - Technical Guftgu  
+Declarative - Create file and have all instructions in it
+Imperative - Step by step entering commands  
+Minikube - Single node cluster. Master and worker components on a single node.
+
+Install Kubectl before installing minikube  
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"  
+chmod +x ./kubectl  
+sudo mv ./kubectl /usr/local/bin/kubectl  
+
+
+
+
+
+ 
 
 
 
