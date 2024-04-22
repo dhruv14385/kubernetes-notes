@@ -25,6 +25,8 @@ apt-get update
 Install kubelet, kubeadm, kubectl etc.  
 apt-get install -y kubelet kubeadm kubectl kubernetes-cni  
 
+Remember : Node = EC2 & Pod = Container
+
 Bootstraping the master node  (Run in master EC2)
 kubeadm init  
 
@@ -81,7 +83,35 @@ To check status of master and worker nodes in minikube
 kubectl get nodes  
 
 More information
-kubectl describe node ip-172-xx-xx-xx
+kubectl describe node ip-172-xx-xx-xx  
+
+Create a single container yml file with vi pod1.yml   
+kind: Pod                              
+apiVersion: v1                     
+metadata:                           
+  name: testpod                  
+spec:                                    
+  containers:                      
+    - name: c00                     
+      image: ubuntu              
+      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
+  restartPolicy: Never         # Defaults to Always  
+
+kubectl apply -f pod1.yml  
+
+To check status of pods  
+kubectl get pods
+
+To check more details of pods like IP address of pod and node 
+kubectl get pods -o wide  
+
+To check more details 
+kubectl describe pod tespod(name of pod)  
+
+To check logs  
+kubectl logs -f testpod.yml
+
+
 
 
 
