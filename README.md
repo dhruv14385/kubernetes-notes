@@ -109,7 +109,10 @@ To check more details
 kubectl describe pod tespod(name of pod)  
 
 To check logs  
-kubectl logs -f testpod.yml
+kubectl logs -f testpod.yml  
+
+To delete pods  
+kubectl delete pod name_of_pod  
 
 
 
