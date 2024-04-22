@@ -77,6 +77,11 @@ minikube start --vm-driver=none
 To check minikube status  
 minikube status
 
+To check status of master and worker nodes in minikube  
+kubectl get nodes  
+
+More information
+kubectl describe node ip-172-xx-xx-xx
 
 
 
