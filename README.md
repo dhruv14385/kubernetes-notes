@@ -59,6 +59,24 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 chmod +x ./kubectl  
 sudo mv ./kubectl /usr/local/bin/kubectl  
 
+To locate where kubectl is installed
+which kubectl
+
+To check kubectl version
+kubectl version
+
+Install Minikube  
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/  
+
+Install conntrack
+apt install conntrack  
+
+To start minikube  
+minikube start --vm-driver=none
+
+To check minikube status  
+minikube status
+
 
 
 
