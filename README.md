@@ -141,7 +141,7 @@ kubectl exec testpod -c c00 -- hostname -i
 To go inside container  
 kubectl exec testpod -it -c c00 -- /bin/bash
 
-Create environment variable yml file with vi pod1.yml 
+Create environment variable yml file with vi pod1.yml   
 kind: Pod
 apiVersion: v1
 metadata:
@@ -153,8 +153,28 @@ spec:
       command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
       env:                        # List of environment variables to be used inside the pod
       - name: MYNAME
-        value: BHUPINDER
+        value: BHUPINDER  
 
+To check environment variable, first go to inside pod with following command  
+kubectl exec environments(name of pod) -it -- /bin/bash  
+
+Then type command below. Output should be BHUPINDER
+echo $MYNAME  
+
+yml file to expose a port on a container  
+kind: Pod
+apiVersion: v1
+metadata:
+  name: testpod4
+spec:
+  containers:
+    - name: c00
+      image: httpd
+      ports:
+       - containerPort: 80  
+
+To check if the port is exposed or not, find pod IP. Then use curl as below. It should show output as 'It works!'  
+curl <port IP>:80 
 
 
 
