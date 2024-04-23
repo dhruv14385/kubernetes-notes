@@ -97,6 +97,7 @@ spec:
       command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
   restartPolicy: Never         # Defaults to Always  
 
+To create pod from yml file  
 kubectl apply -f pod1.yml  
 
 To check status of pods  
@@ -108,11 +109,54 @@ kubectl get pods -o wide
 To check more details 
 kubectl describe pod tespod(name of pod)  
 
-To check logs  
-kubectl logs -f testpod.yml  
+To check logs for pod with one container 
+kubectl logs -f testpod(name of pod)
 
-To delete pods  
+To check logs for pod with multiple containers 
+kubectl logs -f testpod(name of pod) -c c00(name of container)
+
+To delete pods keeping yml file   
 kubectl delete pod name_of_pod  
+
+To delete pods along with yml file  
+kubectl delete -f name_of_file.yml
+
+Create multiple containers yml file with vi pod1.yml   
+kind: Pod                              
+apiVersion: v1                     
+metadata:                           
+  name: testpod                  
+spec:                                    
+  containers:                      
+    - name: c00                     
+      image: ubuntu              
+      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
+    - name: c01                    
+      image: ubuntu              
+      command: ["/bin/bash", "-c", "while true; do echo Hello-World; sleep 5 ; done"]  
+
+To get IP of a pod  
+kubectl exec testpod -c c00 -- hostname -i
+
+To go inside container  
+kubectl exec testpod -it -c c00 -- /bin/bash
+
+Create environment variable yml file with vi pod1.yml 
+kind: Pod
+apiVersion: v1
+metadata:
+  name: environments
+spec:
+  containers:
+    - name: c00
+      image: ubuntu
+      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
+      env:                        # List of environment variables to be used inside the pod
+      - name: MYNAME
+        value: BHUPINDER
+
+
+
 
 
 
