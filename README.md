@@ -61,16 +61,16 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 chmod +x ./kubectl  
 sudo mv ./kubectl /usr/local/bin/kubectl  
 
-To locate where kubectl is installed
+To locate where kubectl is installed  
 which kubectl
 
-To check kubectl version
+To check kubectl version  
 kubectl version
 
 Install Minikube  
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube && sudo mv minikube /usr/local/bin/  
 
-Install conntrack
+Install conntrack  
 apt install conntrack  
 
 To start minikube  
@@ -103,16 +103,16 @@ kubectl apply -f pod1.yml
 To check status of pods  
 kubectl get pods
 
-To check more details of pods like IP address of pod and node 
+To check more details of pods like IP address of pod and node  
 kubectl get pods -o wide  
 
-To check more details 
+To check more details  
 kubectl describe pod tespod(name of pod)  
 
-To check logs for pod with one container 
+To check logs for pod with one container  
 kubectl logs -f testpod(name of pod)
 
-To check logs for pod with multiple containers 
+To check logs for pod with multiple containers  
 kubectl logs -f testpod(name of pod) -c c00(name of container)
 
 To delete pods keeping yml file   
@@ -174,7 +174,43 @@ spec:
        - containerPort: 80  
 
 To check if the port is exposed or not, find pod IP. Then use curl as below. It should show output as 'It works!'  
-curl <port IP>:80 
+curl <port IP>:80  
+
+Simple yml file to show use of labels  
+kind: Pod
+apiVersion: v1
+metadata:
+  name: delhipod
+  labels:                                                   
+    env: development
+    class: pods
+spec:
+    containers:
+       - name: c00
+         image: ubuntu
+         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]  
+
+To see labels of a pod  
+kubectl get pods --show-labels  
+
+To list all the pods matching a label  
+kubectl get pods -l env=development  
+
+To list all the pods without a particular label  
+kubectl get pods -l env!=development  
+
+To delete pods with a particular label  
+kubectl delete pods -l env=development  
+
+To get pods with a set of labels (selectors)  
+kubectl get pods -l 'env in (dev,testing)'  
+
+To get pods without a set of labels  
+kubectl get pods -l 'env notin (dev,testing)'   
+
+
+
+
 
 
 
