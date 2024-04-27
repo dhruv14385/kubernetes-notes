@@ -101,13 +101,17 @@ To create pod from yml file
 kubectl apply -f pod1.yml  
 
 To check status of pods  
-kubectl get pods
+kubectl get pods  
+
+To check status of replica controller  
+kubectl get rc
 
 To check more details of pods like IP address of pod and node  
 kubectl get pods -o wide  
 
 To check more details  
 kubectl describe pod tespod(name of pod)  
+kubectl describe rc name_of_replica  
 
 To check logs for pod with one container  
 kubectl logs -f testpod(name of pod)
@@ -193,6 +197,9 @@ spec:
 To see labels of a pod  
 kubectl get pods --show-labels  
 
+To apply a label to an existing pod  
+kubectl label nodes ip-xxx.xx.xx.xx.xx hardware=t2.medium  
+
 To list all the pods matching a label  
 kubectl get pods -l env=development  
 
@@ -209,47 +216,7 @@ To get pods without a set of labels
 kubectl get pods -l 'env notin (dev,testing)'   
 
 
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-EXAMPLE OF LABELS
-
-
-kind: Pod
-apiVersion: v1
-metadata:
-  name: delhipod
-  labels:                                                   
-    env: development
-    class: pods
-spec:
-    containers:
-       - name: c00
-         image: ubuntu
-         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
-
-
-
-***************************************************************************
-NODE SELECTOR EXAMPLE
+NODE SELECTOR EXAMPLE - Apply label and then select it based on it.
 
 kind: Pod
 apiVersion: v1
@@ -263,9 +230,11 @@ spec:
          image: ubuntu
          command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
     nodeSelector:                                         
-       hardware: t2-medium
+       hardware: t2-medium  
+
 *****************************************************************************************************
-EXAMPLE OF REPLICATION CONTROLLER
+EXAMPLE OF REPLICATION CONTROLLER  
+Replication controller is an object that enables to create multiple pods and make sure that number of pods always exist.  
 
 kind: ReplicationController               
 apiVersion: v1
@@ -284,7 +253,10 @@ spec:
      containers:
        - name: c00
          image: ubuntu
-         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
+         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]  
+
+  To scale replicas  
+  kubectl scale --replicas=8 rc -l myname=bhupinder
 
 
 ****************************************************************************************************************
@@ -312,4 +284,5 @@ spec:
          image: ubuntu
          command: ["/bin/bash", "-c", "while true; do echo Technical-Guftgu; sleep 5 ; done"]
 
-**************************************END*****************************
+**************************************END*****************************  
+
