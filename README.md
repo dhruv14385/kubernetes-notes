@@ -305,5 +305,6 @@ kubectl rollout history deployment name_of_deployment
 To roll back deployment  
 kubectl rollout undo deploy/name_of_deployment   
 
-Nodeport - Makes a service accessible from outside of a cluster.
+Nodeport - Makes a service accessible from outside of a cluster.  
+Emptydir - To share volume between caontainers within a pod. If a pod is deleted, volume is gone.  
 
