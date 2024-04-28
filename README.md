@@ -82,8 +82,17 @@ minikube status
 To check status of master and worker nodes in minikube  
 kubectl get nodes  
 
-More information
+More information about node
 kubectl describe node ip-172-xx-xx-xx  
+
+More info about deployment  
+kubectl describe deploy name_of_deployment  
+
+More info about pods    
+kubectl describe pod name_of_pod  
+
+More info about replica controller  
+kubectl describe rc name_of_replica  
 
 Create a single container yml file with vi pod1.yml   
 kind: Pod                              
@@ -104,14 +113,16 @@ To check status of pods
 kubectl get pods  
 
 To check status of replica controller  
-kubectl get rc
+kubectl get rc  
+
+To check status of replica set   
+kubectl get rs    
+
+To check status of deployment    
+kubectl get deployment   
 
 To check more details of pods like IP address of pod and node  
 kubectl get pods -o wide  
-
-To check more details  
-kubectl describe pod tespod(name of pod)  
-kubectl describe rc name_of_replica  
 
 To check logs for pod with one container  
 kubectl logs -f testpod(name of pod)
@@ -143,7 +154,7 @@ To get IP of a pod
 kubectl exec testpod -c c00 -- hostname -i
 
 To go inside container  
-kubectl exec testpod -it -c c00 -- /bin/bash
+kubectl exec name_of_pod -it -c c00 -- /bin/bash
 
 Create environment variable yml file with vi pod1.yml   
 kind: Pod
@@ -284,5 +295,10 @@ spec:
          image: ubuntu
          command: ["/bin/bash", "-c", "while true; do echo Technical-Guftgu; sleep 5 ; done"]
 
-**************************************END*****************************  
+**************************************END*****************************   
+To check rollout history  
+kubectl rollout history deployment name_of_deployment  
+
+To roll back deployment  
+kubectl rollout undo deploy/name_of_deployment   
 
