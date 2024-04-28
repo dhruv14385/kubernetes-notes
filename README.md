@@ -27,7 +27,7 @@ apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 
 Remember : Node = EC2 & Pod = Container
 
-Bootstraping the master node  (Run in master EC2)
+Bootstraping the master node  (Run in master EC2)  
 kubeadm init  
 
 You will see command to connect master to the node. Copy and paste it aside to use in node instance.  
@@ -39,7 +39,7 @@ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config  
 
 Paste following for flannel installation  
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml  
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/k8s-manifests/kube-flannel-rbac.yml  
 
 Go to node instance and paste the kubeadm join... command  
@@ -93,6 +93,9 @@ kubectl describe pod name_of_pod
 
 More info about replica controller  
 kubectl describe rc name_of_replica  
+
+More info about a service  
+kubectl describe svc name_of_service  
 
 Create a single container yml file with vi pod1.yml   
 kind: Pod                              
@@ -301,4 +304,6 @@ kubectl rollout history deployment name_of_deployment
 
 To roll back deployment  
 kubectl rollout undo deploy/name_of_deployment   
+
+Nodeport - Makes a service accessible from outside of a cluster.
 
