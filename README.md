@@ -10,7 +10,7 @@ docker --version
 systemctl start docker
 systemctl enable docker  
 
-Add GPG keys. You should see 'OK' after running this command.
+Add GPG keys. You should see 'OK' after running this command.  
 sudo curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -  
 
 Create a file as below.  
@@ -22,7 +22,7 @@ deb http://apt.kubernetes.io/ kubernetes-xenial main
 Get updates  
 apt-get update  
 
-Install kubelet, kubeadm, kubectl etc.  
+Install kubelet, kubeadm, kubectl etc.    
 apt-get install -y kubelet kubeadm kubectl kubernetes-cni  
 
 Remember : Node = EC2 & Pod = Container
