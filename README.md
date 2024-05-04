@@ -26,7 +26,7 @@ Install kubelet, kubeadm, kubectl etc.
 apt-get install -y kubelet kubeadm kubectl kubernetes-cni  
 
 Remember : Node = EC2 & Pod = Container  
-Cluster - Node - Pod - Container – App  
+Cluster - Node - Pod - Container - App   
 
 Bootstraping the master node  (Run in master EC2)  
 kubeadm init  
