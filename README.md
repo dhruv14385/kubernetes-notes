@@ -128,6 +128,12 @@ kubectl get deployment
 To check more details of pods like IP address of pod and node  
 kubectl get pods -o wide  
 
+To check status of persistent volume  
+kubectl get pv  
+
+To check status of persistent volume claim   
+kubectl get pvc    
+
 To check logs for pod with one container  
 kubectl logs -f testpod(name of pod)
 
