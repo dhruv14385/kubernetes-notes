@@ -25,7 +25,8 @@ apt-get update
 Install kubelet, kubeadm, kubectl etc.    
 apt-get install -y kubelet kubeadm kubectl kubernetes-cni  
 
-Remember : Node = EC2 & Pod = Container
+Remember : Node = EC2 & Pod = Container  
+Cluster - Node - Pod - Container – App  
 
 Bootstraping the master node  (Run in master EC2)  
 kubeadm init  
@@ -232,19 +233,19 @@ kubectl get pods -l 'env notin (dev,testing)'
 
 NODE SELECTOR EXAMPLE - Apply label and then select it based on it.
 
-kind: Pod
-apiVersion: v1
-metadata:
-  name: nodelabels
-  labels:
-    env: development
-spec:
-    containers:
-       - name: c00
-         image: ubuntu
-         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
-    nodeSelector:                                         
-       hardware: t2-medium  
+kind: Pod  
+apiVersion: v1  
+metadata:  
+  name: nodelabels  
+  labels:  
+    env: development  
+spec:  
+    containers:  
+       - name: c00  
+         image: ubuntu  
+         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]  
+    nodeSelector:                                           
+       hardware: t2-medium    
 
 *****************************************************************************************************
 EXAMPLE OF REPLICATION CONTROLLER  
