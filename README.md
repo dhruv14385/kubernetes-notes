@@ -1,8 +1,14 @@
 # kubernetes-notes  
 Before installing kubernetes (k8s), get updates on ubuntu  
+```
 sudo su
+```
+```
 apt-get update
-apt-get install apt-transport-https  
+```
+```
+apt-get install apt-transport-https
+```
 
 Install and start Docker  
 apt install docker.io -y
