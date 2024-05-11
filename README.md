@@ -172,7 +172,7 @@ spec:
   containers:                      
     - name: c00                     
       image: ubuntu              
-      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
+      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]  
   restartPolicy: Never         # Defaults to Always  
 
 To create pod from yml file  
