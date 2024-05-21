@@ -17,6 +17,9 @@ apt install docker.io -y
 docker --version
 ```
 ```
+service docker status
+```
+```
 systemctl start docker
 ```
 ```
