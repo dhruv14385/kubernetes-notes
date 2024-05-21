@@ -1,17 +1,15 @@
 Get updates on ubuntu  
+
 ```
-sudo su
-```
-```
-apt-get update
+sudo apt-get update
 ```
 ```
-apt-get install apt-transport-https
+sudo apt-get install apt-transport-https
 ```
 
 Install and start Docker  
 ```
-apt install docker.io -y
+sudo apt install docker.io -y
 ```
 ```
 docker --version
@@ -19,6 +17,10 @@ docker --version
 ```
 service docker status
 ```
+```
+sudo usermod -aG docker $USER
+```
+Reboot instance
 ```
 systemctl start docker
 ```
@@ -57,5 +59,8 @@ apt install conntrack
 
 To start minikube  
 ```
-minikube start --vm-driver=none
+minikube start --driver=docker
+```
+```
+minikube status
 ```
