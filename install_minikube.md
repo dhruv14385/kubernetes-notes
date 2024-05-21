@@ -54,7 +54,7 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 
 Install conntrack  
 ```
-apt install conntrack  
+sudo apt install conntrack  
 ```
 
 To start minikube  
