@@ -95,6 +95,7 @@ Declarative - Create file and have all instructions in it
 Imperative - Step by step entering commands  
 Minikube - Single node cluster. Master and worker components on a single node.  
 
+Get updates and install Docker as mentioned above before installing kubectl.
 Install Kubectl before installing minikube  
 ```
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
