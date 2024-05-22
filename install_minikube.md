@@ -1,4 +1,5 @@
-Get updates on ubuntu  
+Select t2.medium EC2 instance which will have 2 CPUs and select 20 GB volume. Allow all traffic on security group. Connect to instance.  
+Get updates on ubuntu. Don't switch to root user.
 
 ```
 sudo apt-get update
@@ -20,13 +21,7 @@ service docker status
 ```
 sudo usermod -aG docker $USER
 ```
-Reboot instance
-```
-systemctl start docker
-```
-```
-systemctl enable docker
-```
+Reboot instance.  
 
 Install Kubectl before installing minikube  
 ```
