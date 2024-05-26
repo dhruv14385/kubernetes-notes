@@ -49,7 +49,7 @@ Install kubelet, kubeadm, kubectl etc.
 apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 ```
 
-Remember : Node = EC2 & Pod = Container  
+Remember : Cluster = VPC, Node = EC2 & Pod = Container  
 Cluster - Node - Pod - Container - App   
 
 Bootstraping the master node  (Run in master EC2)  
@@ -405,9 +405,16 @@ To roll back deployment
 ```
 kubectl rollout undo deploy/name_of_deployment   
 ```
-Nodeport - Makes a service accessible from outside of a cluster.  
+  
 Emptydir - To share volume between caontainers within a pod. If a pod is deleted, volume is gone.  
 Hostpath - To access content of your pod's volume from your host.  
 Persistent volume - Cluster-wide volume that remains beyond lifetime of a pod. Can be accessed by multiple nodes (EC2) within a cluster.  
-Services - Enable connectivity between pods
+Services - It is a method for exposing a network application.  Enable connectivity between pods. Types of Service - ClusterIP, Nodeport, LoadBalancer.  
+ClusterIP - Default service when you don't specify Nodeport or LoadBalancer. Exposes the service only within the cluster.  
+Nodeport - Makes a service accessible from outside of a cluster.  
+![image](https://github.com/dhruv14385/kubernetes-notes/assets/83332524/8171e2ba-dfe2-4298-8307-41a6fc3e9023)
+
+LoadBalancer -   
+Ingress - 
+
 
