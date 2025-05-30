@@ -1,7 +1,7 @@
 # kubernetes-notes  
 
 
-Remember : Cluster = VPC, Node = EC2 & Pod = Container  
+Remember : Cluster = VPC, Node = EC2   
 Cluster - Node - Pod - Container - App   
 
 Each node and each master has its own IP. Containers within a node don't have individual IPs.   
