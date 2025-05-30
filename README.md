@@ -80,17 +80,6 @@ More info about a service
 ```
 kubectl describe svc name_of_service  
 ```
-Create a single container yml file with vi pod1.yml   
-kind: Pod                              
-apiVersion: v1                     
-metadata:                           
-  name: testpod                  
-spec:                                    
-  containers:                      
-    - name: c00                     
-      image: ubuntu              
-      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]  
-  restartPolicy: Never         # Defaults to Always  
 
 To create pod from yml file  
 ```
