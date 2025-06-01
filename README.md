@@ -129,19 +129,6 @@ To delete pods along with yml file
 ```
 kubectl delete -f name_of_file.yml
 ```
-Create multiple containers yml file with vi pod1.yml   
-kind: Pod                              
-apiVersion: v1                     
-metadata:                           
-  name: testpod                  
-spec:                                    
-  containers:                      
-    - name: c00                     
-      image: ubuntu              
-      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
-    - name: c01                    
-      image: ubuntu              
-      command: ["/bin/bash", "-c", "while true; do echo Hello-World; sleep 5 ; done"]  
 
 To get IP of a pod  
 ```
@@ -152,17 +139,17 @@ To go inside container
 kubectl exec name_of_pod -it -c c00 -- /bin/bash
 ```
 Create environment variable yml file with vi pod1.yml   
-kind: Pod
-apiVersion: v1
-metadata:
-  name: environments
-spec:
-  containers:
-    - name: c00
-      image: ubuntu
-      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
-      env:                        # List of environment variables to be used inside the pod
-      - name: MYNAME
+kind: Pod  
+apiVersion: v1  
+metadata:  
+  name: environments  
+spec:  
+  containers:  
+    - name: c00  
+      image: ubuntu  
+      command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]  
+      env:                        # List of environment variables to be used inside the pod  
+      - name: MYNAME  
         value: BHUPINDER  
 
 To check environment variable, first go to inside pod with following command  
