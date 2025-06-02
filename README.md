@@ -147,19 +147,8 @@ Then type command below. Output should be BHUPINDER
 ```
 echo $MYNAME  
 ```
-yml file to expose a port on a container  
-kind: Pod
-apiVersion: v1
-metadata:
-  name: testpod4
-spec:
-  containers:
-    - name: c00
-      image: httpd
-      ports:
-       - containerPort: 80  
 
-To check if the port is exposed or not, find pod IP. Then use curl as below. It should show output as 'It works!'  
+To check if the port is exposed or not, find pod IP. Then use curl as below. It should show output as 'It works!'. Refer to port_exposed.yml file in this repo.  
 ```
 curl <port IP>:80  
 ```
