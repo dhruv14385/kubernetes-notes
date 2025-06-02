@@ -196,31 +196,10 @@ To scale replicas
 ```
 kubectl scale --replicas=8 rc -l myname=bhupinder
 ```
-EXAMPLE OF REPLICA SET
-
-
-kind: ReplicaSet                                    
-apiVersion: apps/v1                            
-metadata:
-  name: myrs
-spec:
-  replicas: 2  
-  selector:                  
-    matchExpressions:                             # these must match the labels
-      - {key: myname, operator: In, values: [Bhupinder, Bupinder, Bhopendra]}
-      - {key: env, operator: NotIn, values: [production]}
-  template:      
-    metadata:
-      name: testpod7
-      labels:              
-        myname: Bhupinder
-    spec:
-     containers:
-       - name: c00
-         image: ubuntu
-         command: ["/bin/bash", "-c", "while true; do echo Technical-Guftgu; sleep 5 ; done"]
-
-**************************************END*****************************   
+Replica set is the superset of replica controller.  
+Replica controller only supports equality based selector whereas the replica set supports set-based selector as well.  
+Refer to file replica_set.yml in this repo.  
+ 
 To check rollout history  
 ```
 kubectl rollout history deployment name_of_deployment  
