@@ -1,12 +1,12 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: environments
+  name: environments            #Note indentation. 
 spec:
   containers:
     - name: c00
       image: ubuntu
       command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]
       env:
-        - name: MYNAME
-          value: BHUPINDER
+        - name: MYNAME          #This is environment variable. Note indentation.
+          value: BHUPINDER      #This is value of env. var. Note indentation.
