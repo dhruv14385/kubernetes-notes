@@ -1,16 +1,16 @@
-kind: ReplicationController               
+kind: ReplicationController          #instead of pod           
 apiVersion: v1
 metadata:
   name: myreplica
 spec:
   replicas: 2            
   selector:        
-    myname: Bhupinder Rajput                             
-  template:                
+    myname: Dhruv Bhavsar            #like a label                        
+  template:                          #template for a new pod that will be created    
     metadata:
       name: testpod6
       labels:            
-        myname: Bhupinder
+        myname: Dhruv
     spec:
      containers:
        - name: c00
