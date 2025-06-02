@@ -152,21 +152,7 @@ To check if the port is exposed or not, find pod IP. Then use curl as below. It 
 ```
 curl <port IP>:80  
 ```
-Simple yml file to show use of labels  
-kind: Pod  
-apiVersion: v1  
-metadata:  
-  name: delhipod  
-  labels:                                                   
-    env: development  
-    class: pods  
-spec:  
-    containers:  
-       - name: c00  
-         image: ubuntu  
-         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]  
-
-To see labels of a pod  
+To see labels of a pod. Refer labels.yml file in this repo.  
 ```
 kubectl get pods --show-labels  
 ```
