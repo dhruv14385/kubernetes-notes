@@ -196,6 +196,10 @@ To scale replicas in replica controller
 ```
 kubectl scale --replicas=8 rc -l myname=bhupinder
 ```
+To scale replicas in replica set     
+```
+kubectl scale --replicas=8 rs/file_name
+```
 Replica set is the superset of replica controller.  
 Replica controller only supports equality based selector whereas the replica set supports set-based selector as well.  
 Refer to file replica_set.yml in this repo.  
