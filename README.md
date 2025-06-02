@@ -192,7 +192,7 @@ Refer to file node_selector.yml in this repo.
 Replication controller is an object that enables to create multiple pods and make sure that number of pods always exist.  
 Refer to file replica_controller.yml in this repo.  
 
-To scale replicas  
+To scale replicas in replica controller   
 ```
 kubectl scale --replicas=8 rc -l myname=bhupinder
 ```
