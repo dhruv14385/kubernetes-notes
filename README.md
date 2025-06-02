@@ -158,6 +158,10 @@ kubectl get pods --show-labels
 ```
 To apply a label to an existing pod  
 ```
+kubectl label pods name_of_pod label_name=label_value   
+```
+To apply a label to an existing node. (TBC)  
+```
 kubectl label nodes ip-xxx.xx.xx.xx.xx hardware=t2.medium  
 ```
 To list all the pods matching a label  
