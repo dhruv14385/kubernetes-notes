@@ -160,9 +160,9 @@ To apply a label to an existing pod
 ```
 kubectl label pods name_of_pod label_name=label_value   
 ```
-To apply a label to an existing node. (TBC)  
+To apply a label to an existing node (used for nodeSelector) 
 ```
-kubectl label nodes ip-xxx.xx.xx.xx.xx hardware=t2.medium  
+kubectl label nodes ip-xxx.xx.xx.xx hardware=t2.medium  
 ```
 To list all the pods matching a label  
 ```
@@ -185,8 +185,12 @@ To get pods without a set of labels
 kubectl get pods -l 'env notin (dev,testing)'   
 ```
 
+nodeSelector is used to select a node as a preferred one (from the available multiple nodes) to create a pod into.  
+First of all, you need to apply a label to the node. Then, use nodeSelector within pod manifest to select that node to create pod into it.  
 NODE SELECTOR EXAMPLE - Apply label and then select it based on it.
 
+
+# This manifest create a pod on a t2-medium label node.   
 kind: Pod  
 apiVersion: v1  
 metadata:  
