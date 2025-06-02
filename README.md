@@ -189,35 +189,13 @@ nodeSelector is used to select a node as a preferred one (from the available mul
 First of all, you need to apply a label to the node. Then, use nodeSelector within pod manifest to select that node to create pod into it.  
 Refer to file node_selector.yml in this repo.  
 
-*****************************************************************************************************
-EXAMPLE OF REPLICATION CONTROLLER  
 Replication controller is an object that enables to create multiple pods and make sure that number of pods always exist.  
-
-kind: ReplicationController               
-apiVersion: v1
-metadata:
-  name: myreplica
-spec:
-  replicas: 2            
-  selector:        
-    myname: Bhupinder Rajput                             
-  template:                
-    metadata:
-      name: testpod6
-      labels:            
-        myname: Bhupinder
-    spec:
-     containers:
-       - name: c00
-         image: ubuntu
-         command: ["/bin/bash", "-c", "while true; do echo Hello-Bhupinder; sleep 5 ; done"]  
+Refer to file replica_controller.yml in this repo.  
 
 To scale replicas  
 ```
 kubectl scale --replicas=8 rc -l myname=bhupinder
 ```
-
-****************************************************************************************************************
 EXAMPLE OF REPLICA SET
 
 
