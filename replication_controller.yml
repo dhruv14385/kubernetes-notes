@@ -5,12 +5,12 @@ metadata:
 spec:
   replicas: 2            
   selector:        
-    myname: Dhruv Bhavsar            #like a label                        
+    myname: Dhruv                    #like a label                        
   template:                          #template for a new pod that will be created    
     metadata:
       name: testpod6
       labels:            
-        myname: Dhruv
+        myname: Dhruv                #to match selector
     spec:
      containers:
        - name: c00
